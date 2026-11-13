@@ -1,26 +1,25 @@
 #pragma once
 
 #include "simulation.hpp"
-#include <memory>
 #include <algorithm>
 
 struct KeyMap {
-    const char direction_ltr = ' ';
-    const char direction_rtl = ' ';
-    const char speed_up = ' ';
-    const char speed_down = ' ';
-    const char pause = ' ';
+    const char direction_ltr = 'd';
+    const char direction_rtl = 'a';
+    const char speed_up = '+';
+    const char speed_down = '-';
+    const char pause = 'p';
 };
 
 class Controler {
-    std::shared_ptr<Simulation> simulation;
+    Simulation& simulation;
     KeyMap keys;
 
 public:
-    Controler(KeyMap km) : keys(km) {}
+    Controler(KeyMap km, Simulation& sim) : keys(km), simulation(sim) {}
 
     void process(char signal) {
-        auto& context = this->simulation->getContext();
+        auto& context = this->simulation.getContext();
         auto speed = context.getSpeed();
         bool running = context.isRunning();
 

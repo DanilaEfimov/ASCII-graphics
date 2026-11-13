@@ -13,14 +13,23 @@ public:
     using speed_t = std::uint8_t;
 
 private:
+    std::size_t pos = 0;
     Direction direction;
     char character;
-    std::uint8_t speed;     // steps per second
+    std::uint8_t speed = 1;     // steps per second
     bool running = true;
 
 public:
     SimulationContext(Direction direction = Direction::LeftToRight, char ch = '@')
         : direction(direction), character(ch) {}
+
+    std::size_t getPosition() const noexcept {
+        return this->pos;
+    }
+
+    void setPosition(std::size_t newPos) {
+        this->pos = newPos;
+    }
 
     Direction getDirection() const noexcept {
         return this->direction;    
