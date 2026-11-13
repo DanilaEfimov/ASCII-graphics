@@ -1,6 +1,7 @@
 #pragma once
 
 #include "context.hpp"
+#include <algorithm>
 
 class Simulation {
     SimulationContext context;
@@ -14,7 +15,7 @@ public:
         return this->context;
     }
 
-    void step() {
+    void step(std::size_t worldWidth) {
         auto& ctx = this->context;
         if (!ctx.isRunning()) return;
 
@@ -22,7 +23,7 @@ public:
         const auto dir = ctx.getDirection();
 
         if (dir == Direction::LeftToRight) {
-            ctx.setPosition(pos + 1);
+            ctx.setPosition(std::min(pos + 1, worldWidth));
         } else {
             ctx.setPosition(pos > 0 ? pos - 1 : 0);
         }

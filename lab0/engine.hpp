@@ -39,7 +39,7 @@ public:
         const auto now = clock::now();
 
         if (now - last >= tick) {
-            simulation.step();
+            simulation.step(current_window_size().width);
             renderer.draw();
             last = now;
         }
