@@ -2,6 +2,7 @@
 
 #include "simulation.hpp"
 #include "controls.hpp"
+#include "utils.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -29,6 +30,7 @@ public:
         const auto& context = this->simulation.getContext();
         if(!context.isRunning()) return;
 
+        this->window_size = current_window_size();
         if(!this->isValidWindowSize())
             throw std::runtime_error("Renderer: invalid window size");
 
