@@ -63,10 +63,6 @@ clang++ -O2 main.cpp -o running_char -lncurses
 4. `Renderer` draws the line with the character at its current position.
 5. `Engine` ties it all together in a loop; the tick length is derived from the current speed.
 
-## Known issues
-
-- Speed `0` must be avoided, since the tick length is computed by dividing by speed.
-
 ## License
 
 Educational project. Use it however you like.
