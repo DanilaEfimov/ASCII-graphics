@@ -6,6 +6,11 @@
 
 namespace {
     
+    struct WindowSize {
+        std::size_t width;
+        std::size_t height;
+    };
+
     WindowSize current_window_size() {
         struct winsize w{};
         ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);

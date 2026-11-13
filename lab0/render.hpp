@@ -7,11 +7,6 @@
 #include <string>
 #include <stdexcept>
 
-struct WindowSize {
-    std::size_t width;
-    std::size_t height;
-};
-
 class Renderer {
 
 WindowSize window_size;

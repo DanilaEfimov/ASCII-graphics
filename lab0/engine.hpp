@@ -11,7 +11,7 @@
 using namespace std::chrono;
 
 class Engine {
-    static constexpr auto time_unit = milliseconds(1000);
+    static constexpr auto time_unit = milliseconds(1024);
 
     Simulation& simulation;
     Renderer renderer;
@@ -35,11 +35,11 @@ public:
         }
 
         const auto speed = simulation.getContext().getSpeed();
-        const auto tick = std::chrono::milliseconds(1024 / speed);
+        const auto tick = std::chrono::milliseconds(Engine::time_unit / speed);
         const auto now = clock::now();
 
         if (now - last >= tick) {
-            simulation.step(current_window_size().width);
+            simulation.step();
             renderer.draw();
             last = now;
         }
