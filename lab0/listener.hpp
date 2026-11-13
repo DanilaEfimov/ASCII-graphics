@@ -5,12 +5,18 @@
 
 class Listener {
 public:
-    Listener() { initscr(); cbreak(); noecho(); nodelay(stdscr, TRUE); }
-    ~Listener() { endwin(); }
+  Listener() {
+    initscr();
+    cbreak();
+    noecho();
+    nodelay(stdscr, TRUE);
+  }
+  ~Listener() { endwin(); }
 
-    std::optional<char> poll() {
-        int c = getch();
-        if (c == ERR) return std::nullopt;
-        return static_cast<char>(c);
-    }
+  std::optional<char> poll() {
+    int c = getch();
+    if (c == ERR)
+      return std::nullopt;
+    return static_cast<char>(c);
+  }
 };
