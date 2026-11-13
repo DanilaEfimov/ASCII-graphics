@@ -3,6 +3,15 @@
 #include "context.hpp"
 
 class Simulation {
-    // TODO: implement
     SimulationContext context;
+
+public:
+    const SimulationContext& getContext() const noexcept {
+        return this->context;
+    }
+
+    SimulationContext& getContext() {
+        return this->context;
+    }
+
 };
