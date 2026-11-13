@@ -4,7 +4,7 @@
 
 A small terminal animation written in C++ with ncurses. A single character (`@` by default) runs back and forth along one line of the terminal, and you control it from the keyboard.
 
-![Demo](git/demo.gif)
+![Demo](gif/demo.gif)
 
 ## Features
 
