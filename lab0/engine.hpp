@@ -42,7 +42,7 @@ public:
         last = now;
       }
 
-      std::this_thread::sleep_for(std::chrono::milliseconds(1));
+      std::this_thread::sleep_for(Engine::time_unit / std::numeric_limits<SimulationContext::speed_t>::max());
     }
   }
 };
