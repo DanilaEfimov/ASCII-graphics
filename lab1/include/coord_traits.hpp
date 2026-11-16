@@ -10,6 +10,7 @@ enum class CoordCategory {
 };
 
 template<class T>
+    requires std::is_arithmetic_v<T>
 inline constexpr CoordCategory categorize() {
     if constexpr (std::is_integral_v<T> && std::is_unsigned_v<T>)
         return CoordCategory::UnsignedInteger;
@@ -33,7 +34,7 @@ struct CoordTraits<T, CoordCategory::FloatingPoint> {
 };
 
 template<class T>
-using coord_type_v = CoordTraits<T>::v;
+using coord_t = typename CoordTraits<T>::v;
 
 
 template<class T>
@@ -53,4 +54,4 @@ struct Vector2<double> {
 };
 
 template<class T>
-using vec_type_v = Vector2<T>::v;
+using vec_t = typename Vector2<coord_t<T>>::v;
