@@ -21,4 +21,10 @@ public:
         this->border.position += sh;
     }
 
+    // Рамка в float-координатах (удобно для физики и отрисовки)
+    sf::FloatRect getBounds() const {
+        return sf::FloatRect(sf::Vector2f(this->border.position),
+                             sf::Vector2f(this->border.size));
+    }
+
 };
