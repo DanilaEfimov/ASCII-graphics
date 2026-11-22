@@ -1,8 +1,9 @@
 #pragma once
 
 #include <SFML/System/Vector2.hpp>
-#include <cstdint>
 #include <concepts>
+#include <cstdint>
+#include <type_traits>
 
 enum class CoordCategory {
     UnsignedInteger,
